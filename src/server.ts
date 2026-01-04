@@ -15,6 +15,10 @@ const groq = new Groq({apiKey : process.env.GROQ_API_KEY})
 app.use(cors())
 app.use(express.json())
 
+app.get("",(req , res)=>{
+    res.json({msg: "service deployed"})
+})
+
 app.post("/chat", async (req : Request ,res : Response)=>{
     const {userPrompt} = req.body 
     console.log(userPrompt)
