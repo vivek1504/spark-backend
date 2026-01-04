@@ -9,6 +9,7 @@ import { enhancePrompt, errorFixPrompt, systemConstraint } from "./prompts.js"
 dotenv.config()
 
 const app = express()
+const PORT= process.env.PORT || 3000
 const groq = new Groq({apiKey : process.env.GROQ_API_KEY})
 
 app.use(cors())
@@ -97,4 +98,4 @@ app.post("/fixError",async (req :Request, res: Response)=>{
     }
 })
 
-app.listen(3000,()=>console.log("listening"))
+app.listen(PORT,()=>console.log("listening on ", PORT))
